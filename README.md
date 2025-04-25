@@ -79,6 +79,113 @@ Mot de passe : password
 
 Remarque : Ce projet est à des fins éducatives et pour démontrer la maîtrise de Laravel, Livewire, Filament et TailwindCSS.
 
+Authentification avec Laravel Breeze
+Installez Laravel Breeze :
+
+composer require laravel/breeze --dev
+Installez les fichiers Blade avec l'authentification :
+
+php artisan breeze:install blade
+Compilez les assets :
+
+npm install && npm run dev
+Exécutez les migrations :
+
+php artisan migrate
+Structure du Projet
+Modèles et Base de Données
+Créez les tables suivantes :
+
+Properties : représente les biens immobiliers
+
+Bookings : représente les réservations d'un bien
+
+Exemple de migration pour properties :
+
+php
+Copier le code
+Schema::create('properties', function (Blueprint $table) {
+    $table->id();
+    $table->string('name');
+    $table->text('description');
+    $table->decimal('price_per_night', 8, 2);
+    $table->timestamps();
+});
+Exemple de migration pour bookings :
+
+
+Schema::create('bookings', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('user_id')->constrained()->onDelete('cascade');
+    $table->foreignId('property_id')->constrained()->onDelete('cascade');
+    $table->date('start_date');
+    $table->date('end_date');
+    $table->timestamps();
+});
+Interface Utilisateur avec Blade et TailwindCSS
+Créez un layout principal dans resources/views/layouts/app.blade.php.
+
+Utilisez des composants Blade pour les boutons et les cartes de propriété.
+
+Ajoutez TailwindCSS et définissez des couleurs personnalisées dans tailwind.config.js :
+
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+    //
+      },
+    },
+  },
+}
+Livewire : Composants Dynamiques
+Installez Livewire :
+
+composer require livewire/livewire
+Créez un composant pour la gestion des réservations :
+
+php artisan make:livewire BookingManager
+Ajoutez des événements et actions Livewire (wire:model, wire:click, dispatch).
+
+Filament : Interface d’Administration
+Installez Filament :
+
+composer require filament/filament
+Créez un panneau d'administration :
+
+
+php artisan make:filament-user
+Ajoutez des tables et formulaires pour les propriétés et réservations dans Filament.
+
+Livrable attendu
+Un projet Laravel fonctionnel avec l'authentification Breeze.
+
+Une gestion des propriétés et réservations.
+
+Une interface Blade avec TailwindCSS.
+
+Un composant Livewire pour la réservation.
+
+Un panneau Filament pour la gestion des données.
+
+Livraison sur GitHub
+Créez un dépôt Git sur GitHub.
+
+Initialisez un dépôt Git dans votre projet Laravel :
+
+git init
+Ajoutez votre dépôt distant :
+
+git remote add origin https://github.com/votre-utilisateur/nom-du-repository.git
+Ajoutez les fichiers au dépôt Git :
+
+git add .
+Effectuez un commit avec un message approprié :
+
+git commit -m "Initial commit du projet Laravel"
+Poussez le code vers GitHub :
+
+git push -u origin main
 
 ### Explication :
 
