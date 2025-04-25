@@ -1,0 +1,40 @@
+# Ignorer les fichiers de cache PHPUnit
+.phpunit.cache
+
+# Ignorer les répertoires node_modules et les fichiers liés au build
+/node_modules
+/public/build
+/public/hot
+/public/storage
+
+# Ignorer les clés et fichiers sensibles de stockage
+/storage/*.key
+/storage/pail
+
+# Ignorer les fichiers de dépendances générés
+/vendor
+
+# Ignorer les fichiers de configuration sensibles
+.env
+.env.backup
+.env.production
+.auth.json
+
+# Fichiers de configuration PHP et IDE
+.phpactor.json
+.phpunit.result.cache
+
+# Fichiers de configuration de la machine virtuelle Homestead
+Homestead.json
+Homestead.yaml
+
+# Fichiers de log npm et yarn
+npm-debug.log
+yarn-error.log
+
+# Fichiers et répertoires spécifiques aux IDE et éditeurs de code
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
